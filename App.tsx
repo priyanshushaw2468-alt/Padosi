@@ -5,7 +5,7 @@ import ValueProps from './components/ValueProps';
 import ProductShowcase from './components/ProductShowcase';
 import ShopList from './components/ShopList';
 import SellerBridge from './components/SellerBridge';
-import Testimonials from './components/Testimonials'; // Assuming this exists from previous context
+import Testimonials from './components/Testimonials';
 import Footer from './components/Footer';
 import ChatWidget from './components/ChatWidget';
 
@@ -19,10 +19,7 @@ const App: React.FC = () => {
         <ProductShowcase />
         <ShopList />
         <SellerBridge />
-        {/* Testimonials component was added in a previous step, keeping consistent */}
-        <div id="mission"> {/* Anchor for "Our Mission" logic often maps here or SellerBridge */}
-          {/* Content */}
-        </div>
+        <Testimonials />
       </main>
       <Footer />
       <ChatWidget />

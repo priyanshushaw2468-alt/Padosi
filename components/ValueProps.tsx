@@ -9,12 +9,12 @@ const ValueProps: React.FC = () => {
           {VALUE_PROPS.map((prop, index) => (
             <div 
               key={index}
-              className="flex flex-col items-center text-center p-8 rounded-2xl bg-padosi-cream border border-transparent hover:border-padosi-green/20 hover:shadow-lg transition-all duration-300"
+              className="flex flex-col items-center text-center p-8 rounded-3xl bg-padosi-cream border border-transparent hover:border-padosi-green/10 hover:shadow-soft transition-all duration-300"
             >
-              <div className="w-16 h-16 bg-white rounded-full flex items-center justify-center mb-6 shadow-sm text-padosi-green">
+              <div className="w-16 h-16 bg-white rounded-2xl flex items-center justify-center mb-6 shadow-sm text-padosi-green border border-gray-50">
                 <prop.icon size={32} strokeWidth={2} />
               </div>
-              <h3 className="text-2xl font-serif font-bold text-padosi-green mb-3">
+              <h3 className="text-2xl font-display font-bold text-padosi-green mb-3">
                 {prop.title}
               </h3>
               <p className="text-gray-600 font-medium">

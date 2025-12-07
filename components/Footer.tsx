@@ -10,7 +10,7 @@ const Footer: React.FC = () => {
           
           {/* Brand Column */}
           <div className="space-y-6">
-            <h3 className="text-3xl font-serif font-bold text-white tracking-tight">{APP_NAME}</h3>
+            <h3 className="text-3xl font-display font-bold text-white tracking-tight">{APP_NAME}</h3>
             <p className="text-gray-300 text-sm leading-relaxed max-w-xs">
               Reconnecting neighborhoods, one delivery at a time. Empowering local sellers with simple tech and big hearts.
             </p>

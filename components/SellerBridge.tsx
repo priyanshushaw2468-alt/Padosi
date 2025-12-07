@@ -8,7 +8,7 @@ const SellerBridge: React.FC = () => {
         
         {/* Header */}
         <div className="text-center mb-16">
-          <h2 className="text-3xl md:text-5xl font-serif font-bold text-padosi-green mb-6">
+          <h2 className="text-3xl md:text-5xl font-display font-bold text-padosi-green mb-6 tracking-tight">
             Own a Shop? Trouble with Phones? <br/>
             <span className="text-padosi-orange">We've Got You.</span>
           </h2>
@@ -24,33 +24,33 @@ const SellerBridge: React.FC = () => {
           <div className="hidden md:block absolute top-12 left-[16%] right-[16%] h-1 bg-padosi-orange/20 -z-10"></div>
 
           {/* Step 1 */}
-          <div className="flex flex-col items-center text-center bg-white p-8 rounded-2xl shadow-sm border border-orange-100">
-            <div className="w-20 h-20 bg-padosi-orange text-white rounded-full flex items-center justify-center mb-6 text-2xl font-bold shadow-lg shadow-orange-200">
+          <div className="flex flex-col items-center text-center bg-white p-8 rounded-3xl shadow-sm border border-orange-100">
+            <div className="w-20 h-20 bg-padosi-orange text-white rounded-2xl rotate-3 flex items-center justify-center mb-6 text-2xl font-bold shadow-lg shadow-orange-200">
               1
             </div>
-            <h3 className="text-xl font-bold text-padosi-charcoal mb-3">We Visit You</h3>
+            <h3 className="text-xl font-display font-bold text-padosi-charcoal mb-3">We Visit You</h3>
             <p className="text-gray-600 text-sm leading-relaxed">
               Our local Padosi agent visits your shop to understand your inventory.
             </p>
           </div>
 
           {/* Step 2 */}
-          <div className="flex flex-col items-center text-center bg-white p-8 rounded-2xl shadow-sm border border-orange-100">
-            <div className="w-20 h-20 bg-padosi-orange text-white rounded-full flex items-center justify-center mb-6 shadow-lg shadow-orange-200">
+          <div className="flex flex-col items-center text-center bg-white p-8 rounded-3xl shadow-sm border border-orange-100">
+            <div className="w-20 h-20 bg-padosi-orange text-white rounded-2xl -rotate-2 flex items-center justify-center mb-6 shadow-lg shadow-orange-200">
               <Camera size={32} />
             </div>
-            <h3 className="text-xl font-bold text-padosi-charcoal mb-3">We Click Photos</h3>
+            <h3 className="text-xl font-display font-bold text-padosi-charcoal mb-3">We Click Photos</h3>
             <p className="text-gray-600 text-sm leading-relaxed">
               We take professional photos and list your products online for you.
             </p>
           </div>
 
           {/* Step 3 */}
-          <div className="flex flex-col items-center text-center bg-white p-8 rounded-2xl shadow-sm border border-orange-100">
-            <div className="w-20 h-20 bg-padosi-orange text-white rounded-full flex items-center justify-center mb-6 shadow-lg shadow-orange-200">
+          <div className="flex flex-col items-center text-center bg-white p-8 rounded-3xl shadow-sm border border-orange-100">
+            <div className="w-20 h-20 bg-padosi-orange text-white rounded-2xl rotate-2 flex items-center justify-center mb-6 shadow-lg shadow-orange-200">
               <Receipt size={32} />
             </div>
-            <h3 className="text-xl font-bold text-padosi-charcoal mb-3">You Get Orders</h3>
+            <h3 className="text-xl font-display font-bold text-padosi-charcoal mb-3">You Get Orders</h3>
             <p className="text-gray-600 text-sm leading-relaxed">
               Orders print automatically on a simple receipt printer. No app needed.
             </p>

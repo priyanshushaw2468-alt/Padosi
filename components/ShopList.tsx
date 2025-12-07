@@ -7,7 +7,7 @@ const ShopList: React.FC = () => {
 
   const scroll = (direction: 'left' | 'right') => {
     if (scrollRef.current) {
-      const scrollAmount = 350; // approximate card width + gap
+      const scrollAmount = 350; 
       const newScrollLeft = direction === 'left' 
         ? scrollRef.current.scrollLeft - scrollAmount 
         : scrollRef.current.scrollLeft + scrollAmount;
@@ -25,7 +25,7 @@ const ShopList: React.FC = () => {
         {[1, 2, 3, 4, 5].map((star) => (
           <Star 
             key={star} 
-            size={14} 
+            size={12} 
             className={`${star <= Math.round(rating) ? "text-padosi-gold fill-padosi-gold" : "text-gray-400/50 fill-gray-400/50"}`} 
           />
         ))}
@@ -34,13 +34,13 @@ const ShopList: React.FC = () => {
   };
 
   return (
-    <section className="py-24 bg-white border-t border-gray-50" id="local-sellers">
+    <section className="py-24 bg-white" id="local-sellers">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         
         {/* Header Section */}
-        <div className="flex flex-col md:flex-row justify-between items-end mb-12 gap-8">
+        <div className="flex flex-col md:flex-row justify-between items-end mb-16 gap-10">
           <div className="text-left max-w-2xl">
-            <h2 className="text-4xl md:text-5xl font-serif font-bold text-padosi-green mb-6 leading-[1.1] tracking-tight">
+            <h2 className="text-4xl md:text-5xl font-display font-bold text-padosi-green mb-6 leading-[1.1] tracking-tight">
               Meet Your <br/> Neighbors
             </h2>
             <p className="text-gray-500 text-lg leading-relaxed font-light">
@@ -48,23 +48,23 @@ const ShopList: React.FC = () => {
             </p>
           </div>
           
-          <div className="flex flex-col sm:flex-row items-end sm:items-center gap-4 w-full md:w-auto">
-            <button className="hidden md:flex items-center text-padosi-green font-bold text-sm tracking-widest uppercase hover:text-padosi-orange transition-colors group">
-              View All Shops <ArrowRight size={18} className="ml-2 transform group-hover:translate-x-1 transition-transform"/>
+          <div className="flex flex-col sm:flex-row items-end sm:items-center gap-6 w-full md:w-auto">
+            <button className="hidden md:flex items-center text-padosi-green font-bold text-xs tracking-widest uppercase hover:text-padosi-orange transition-colors group">
+              View All Shops <ArrowRight size={16} className="ml-2 transform group-hover:translate-x-1 transition-transform"/>
             </button>
             
             {/* Slider Controls */}
             <div className="flex gap-3">
               <button 
                 onClick={() => scroll('left')}
-                className="w-12 h-12 rounded-full border border-gray-200 flex items-center justify-center text-padosi-charcoal hover:bg-padosi-green hover:text-white hover:border-transparent transition-all shadow-sm active:scale-95"
+                className="w-14 h-14 rounded-full border border-gray-100 bg-white flex items-center justify-center text-padosi-charcoal hover:bg-padosi-green hover:text-white hover:border-transparent transition-all shadow-soft hover:shadow-lg active:scale-95"
                 aria-label="Scroll left"
               >
                 <ChevronLeft size={24} />
               </button>
               <button 
                 onClick={() => scroll('right')}
-                className="w-12 h-12 rounded-full border border-gray-200 flex items-center justify-center text-padosi-charcoal hover:bg-padosi-green hover:text-white hover:border-transparent transition-all shadow-sm active:scale-95"
+                className="w-14 h-14 rounded-full border border-gray-100 bg-white flex items-center justify-center text-padosi-charcoal hover:bg-padosi-green hover:text-white hover:border-transparent transition-all shadow-soft hover:shadow-lg active:scale-95"
                 aria-label="Scroll right"
               >
                 <ChevronRight size={24} />
@@ -76,69 +76,68 @@ const ShopList: React.FC = () => {
         {/* Scrollable Container */}
         <div 
           ref={scrollRef}
-          className="flex gap-6 overflow-x-auto pb-12 -mx-4 px-4 sm:mx-0 sm:px-0 no-scrollbar snap-x scroll-smooth"
+          className="flex gap-6 overflow-x-auto pb-16 -mx-4 px-4 sm:mx-0 sm:px-0 no-scrollbar snap-x scroll-smooth"
         >
           {NEARBY_SHOPS.map((shop) => (
             <div 
               key={shop.id}
-              className="min-w-[300px] md:min-w-[380px] group relative h-[420px] rounded-[2rem] overflow-hidden cursor-pointer shadow-lg hover:shadow-[0_20px_40px_rgba(0,0,0,0.15)] transition-all duration-500 snap-center border border-gray-100"
+              className="min-w-[300px] md:min-w-[380px] group relative h-[450px] rounded-[2.5rem] overflow-hidden cursor-pointer shadow-lg hover:shadow-[0_25px_50px_-12px_rgba(0,0,0,0.25)] transition-all duration-500 snap-center"
             >
               {/* Background Image */}
               <img 
                 src={shop.image} 
                 alt={shop.name} 
-                className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+                className="absolute inset-0 w-full h-full object-cover transition-transform duration-1000 group-hover:scale-105"
               />
               
-              {/* Trust Badge - New Element */}
-              <div className="absolute top-5 right-5 bg-white/95 backdrop-blur-sm py-2 px-4 rounded-full flex items-center shadow-md z-10">
-                 <BadgeCheck size={16} className="text-padosi-green mr-1.5" />
+              {/* Trust Badge */}
+              <div className="absolute top-6 right-6 bg-white/95 backdrop-blur-md py-2 px-4 rounded-full flex items-center shadow-lg z-10">
+                 <BadgeCheck size={14} className="text-padosi-green mr-1.5" />
                  <span className="text-[10px] font-bold text-padosi-green tracking-widest uppercase">Verified</span>
               </div>
               
-              {/* Gradient Overlay for Text Readability */}
-              <div className="absolute inset-0 bg-gradient-to-t from-padosi-green via-padosi-green/40 to-transparent opacity-90 group-hover:opacity-100 transition-opacity duration-300"></div>
+              {/* Gradient Overlay */}
+              <div className="absolute inset-0 bg-gradient-to-t from-padosi-green via-padosi-green/30 to-transparent opacity-90 group-hover:opacity-100 transition-opacity duration-500"></div>
 
               {/* Card Content */}
-              <div className="absolute bottom-0 left-0 w-full p-8 text-white transform translate-y-4 group-hover:translate-y-0 transition-transform duration-300">
-                <div className="flex justify-between items-start mb-3">
-                   <h3 className="text-3xl font-serif font-bold leading-none tracking-tight">{shop.name}</h3>
+              <div className="absolute bottom-0 left-0 w-full p-8 text-white transform translate-y-2 group-hover:translate-y-0 transition-transform duration-500">
+                <div className="flex justify-between items-start mb-2">
+                   <h3 className="text-3xl font-display font-bold leading-none tracking-tight">{shop.name}</h3>
                 </div>
                 
-                <div className="flex items-center space-x-4 mb-5">
-                   {/* Star Rating Display */}
-                   <div className="flex items-center bg-black/20 backdrop-blur-md px-3 py-1.5 rounded-full border border-white/10">
-                     <span className="text-sm font-bold text-padosi-gold mr-2">{shop.rating}</span>
+                <p className="text-padosi-orange font-bold text-xs uppercase tracking-widest mb-6">
+                  {shop.category}
+                </p>
+
+                <div className="flex items-center space-x-4 mb-6">
+                   <div className="flex items-center bg-white/10 backdrop-blur-md px-3 py-1.5 rounded-full border border-white/10">
+                     <span className="text-sm font-bold text-white mr-2">{shop.rating}</span>
                      {renderStars(shop.rating)}
                    </div>
                    
-                   <div className="flex items-center text-gray-200 text-sm font-medium tracking-wide">
-                    <MapPin size={16} className="mr-1.5 text-padosi-orange" />
+                   <div className="flex items-center text-white/80 text-sm font-medium tracking-wide">
+                    <MapPin size={14} className="mr-1.5 text-padosi-orange" />
                     {shop.distance}
                   </div>
                 </div>
 
-                <div className="w-full h-px bg-white/20 mb-5"></div>
+                <div className="w-full h-px bg-white/20 mb-6"></div>
 
-                <div className="flex justify-between items-center">
-                  <p className="text-padosi-orange font-bold text-xs uppercase tracking-widest">
-                    {shop.category}
-                  </p>
-                  <span className="opacity-0 group-hover:opacity-100 transition-all duration-300 transform translate-x-[-10px] group-hover:translate-x-0">
-                    <div className="w-10 h-10 rounded-full bg-white text-padosi-green flex items-center justify-center">
-                      <ArrowRight size={20} />
-                    </div>
-                  </span>
+                <div className="flex justify-between items-center group/btn">
+                  <span className="text-sm font-medium text-white/90">Visit Store</span>
+                  <div className="w-10 h-10 rounded-full bg-white text-padosi-green flex items-center justify-center transform transition-transform group-hover/btn:rotate-[-45deg]">
+                    <ArrowRight size={18} />
+                  </div>
                 </div>
               </div>
             </div>
           ))}
         </div>
         
-        {/* Mobile "View All" Button (Only visible on small screens) */}
-        <div className="mt-2 md:hidden text-center">
-            <button className="inline-flex items-center text-padosi-green font-bold text-sm tracking-widest uppercase">
-              View All Shops <ArrowRight size={18} className="ml-2"/>
+        {/* Mobile View All Button */}
+        <div className="mt-4 md:hidden text-center">
+            <button className="inline-flex items-center text-padosi-green font-bold text-xs tracking-widest uppercase">
+              View All Shops <ArrowRight size={16} className="ml-2"/>
             </button>
         </div>
 

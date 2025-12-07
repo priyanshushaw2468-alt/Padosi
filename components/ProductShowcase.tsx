@@ -7,7 +7,7 @@ const ProductShowcase: React.FC = () => {
 
   const scroll = (direction: 'left' | 'right') => {
     if (scrollRef.current) {
-      const scrollAmount = 300; // approximate card width + gap
+      const scrollAmount = 300; 
       const newScrollLeft = direction === 'left' 
         ? scrollRef.current.scrollLeft - scrollAmount 
         : scrollRef.current.scrollLeft + scrollAmount;
@@ -20,35 +20,35 @@ const ProductShowcase: React.FC = () => {
   };
 
   return (
-    <section className="py-20 bg-padosi-cream" id="shop">
+    <section className="py-24 bg-padosi-cream" id="shop">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         
         {/* Header with Navigation */}
-        <div className="flex flex-col md:flex-row justify-between items-end mb-10 gap-4">
-          <div>
-             <h2 className="text-3xl md:text-4xl font-serif font-bold text-padosi-green mb-2">
+        <div className="flex flex-col md:flex-row justify-between items-end mb-12 gap-6">
+          <div className="max-w-xl">
+             <h2 className="text-3xl md:text-5xl font-display font-bold text-padosi-green mb-4 tracking-tight">
               Fresh on the Market
             </h2>
-            <p className="text-gray-500">Curated goods from your block.</p>
+            <p className="text-gray-500 text-lg font-light">Hand-picked daily essentials from your block.</p>
           </div>
           
-          <div className="flex items-center gap-4">
-            <button className="hidden md:flex items-center text-padosi-orange font-bold hover:text-orange-700 transition-colors">
-              View All <Plus size={18} className="ml-1" />
+          <div className="flex items-center gap-6">
+            <button className="hidden md:flex items-center text-padosi-orange font-bold text-sm tracking-widest uppercase hover:text-orange-700 transition-colors">
+              View All <Plus size={16} className="ml-2" />
             </button>
             
             {/* Navigation Buttons */}
-            <div className="flex gap-2">
+            <div className="flex gap-3">
               <button 
                 onClick={() => scroll('left')}
-                className="w-10 h-10 rounded-full border border-gray-200 bg-white flex items-center justify-center text-padosi-charcoal hover:bg-padosi-green hover:text-white hover:border-transparent transition-all shadow-sm"
+                className="w-12 h-12 rounded-full border border-gray-200/50 bg-white flex items-center justify-center text-padosi-charcoal hover:bg-padosi-green hover:text-white hover:border-transparent transition-all shadow-soft hover:shadow-lg"
                 aria-label="Scroll left"
               >
                 <ChevronLeft size={20} />
               </button>
               <button 
                 onClick={() => scroll('right')}
-                className="w-10 h-10 rounded-full border border-gray-200 bg-white flex items-center justify-center text-padosi-charcoal hover:bg-padosi-green hover:text-white hover:border-transparent transition-all shadow-sm"
+                className="w-12 h-12 rounded-full border border-gray-200/50 bg-white flex items-center justify-center text-padosi-charcoal hover:bg-padosi-green hover:text-white hover:border-transparent transition-all shadow-soft hover:shadow-lg"
                 aria-label="Scroll right"
               >
                 <ChevronRight size={20} />
@@ -60,41 +60,42 @@ const ProductShowcase: React.FC = () => {
         {/* Horizontal Slider */}
         <div 
           ref={scrollRef}
-          className="flex gap-6 overflow-x-auto pb-8 -mx-4 px-4 sm:mx-0 sm:px-0 no-scrollbar snap-x scroll-smooth"
+          className="flex gap-6 overflow-x-auto pb-12 -mx-4 px-4 sm:mx-0 sm:px-0 no-scrollbar snap-x scroll-smooth"
         >
           {FEATURED_PRODUCTS.map((product) => (
             <div 
               key={product.id} 
-              className="min-w-[280px] w-[280px] bg-white rounded-2xl overflow-hidden shadow-sm hover:shadow-xl transition-shadow duration-300 snap-center border border-gray-100 group flex-shrink-0"
+              className="min-w-[280px] w-[280px] bg-white rounded-3xl overflow-hidden shadow-soft hover:shadow-hover transition-all duration-300 snap-center group flex-shrink-0"
             >
               {/* Image */}
-              <div className="h-48 overflow-hidden relative">
+              <div className="h-56 overflow-hidden relative">
                 <img 
                   src={product.image} 
                   alt={product.name} 
-                  className="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-500"
+                  className="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-700"
                 />
-                <span className="absolute top-3 right-3 bg-white/90 backdrop-blur px-3 py-1 rounded-full text-sm font-bold text-padosi-green shadow-sm">
+                <span className="absolute top-4 right-4 bg-white/95 backdrop-blur px-3 py-1.5 rounded-full text-sm font-bold text-padosi-green shadow-sm">
                   {product.price}
                 </span>
               </div>
 
               {/* Content */}
-              <div className="p-5">
-                <h3 className="font-bold text-lg text-padosi-charcoal mb-4 line-clamp-1">
+              <div className="p-6">
+                <h3 className="font-bold text-lg text-padosi-charcoal mb-4 line-clamp-1 tracking-tight">
                   {product.name}
                 </h3>
                 
                 {/* Seller Chip */}
-                <div className="flex items-center pt-4 border-t border-gray-100">
+                <div className="flex items-center pt-4 border-t border-gray-50">
                   <img 
                     src={product.sellerAvatar} 
                     alt={product.sellerName} 
-                    className="w-8 h-8 rounded-full object-cover mr-3 border border-gray-200"
+                    className="w-8 h-8 rounded-full object-cover mr-3 ring-2 ring-white shadow-sm"
                   />
-                  <span className="text-sm text-gray-500">
-                    Sold by <span className="font-semibold text-padosi-green">{product.sellerName}</span>
-                  </span>
+                  <div className="flex flex-col">
+                    <span className="text-[10px] text-gray-400 uppercase tracking-wider font-semibold">Sold by</span>
+                    <span className="text-sm font-semibold text-padosi-green leading-none mt-0.5">{product.sellerName}</span>
+                  </div>
                 </div>
               </div>
             </div>
@@ -102,9 +103,9 @@ const ProductShowcase: React.FC = () => {
         </div>
         
         {/* Mobile View All Button */}
-        <div className="md:hidden mt-4 text-center">
-            <button className="inline-flex items-center text-padosi-orange font-bold">
-              View All <Plus size={18} className="ml-1"/>
+        <div className="md:hidden mt-2 text-center">
+            <button className="inline-flex items-center text-padosi-orange font-bold text-sm tracking-widest uppercase">
+              View All <Plus size={16} className="ml-2"/>
             </button>
         </div>
       </div>
